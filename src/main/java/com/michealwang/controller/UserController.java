@@ -1,6 +1,7 @@
 package com.michealwang.controller;
 
 
+import com.michealwang.common.lang.ResultJson;
 import com.michealwang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/index")
-    public Object index() {
-        return userService.getById(1L);
+    public ResultJson index() {
+        return ResultJson.success(userService.getById(1L));
     }
 
 }
