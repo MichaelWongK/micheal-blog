@@ -1,5 +1,7 @@
 package com.michealwang.shiro;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,9 +10,10 @@ import java.io.Serializable;
  * @Email:wangmk13@163.com
  * @Description 登录成功之后返回的一个用户信息的载体
  */
+@Data
 public class AccountProfile implements Serializable {
 
-    private String id;
+    private Long id;
 
     private String username;
 

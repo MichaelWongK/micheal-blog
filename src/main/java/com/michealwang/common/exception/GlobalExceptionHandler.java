@@ -1,4 +1,4 @@
-package com.michealwang.exception;
+package com.michealwang.common.exception;
 
 import com.michealwang.common.lang.ResultJson;
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +35,13 @@ public class GlobalExceptionHandler {
         BindingResult bindingResult = e.getBindingResult();
         ObjectError objectError = bindingResult.getAllErrors().stream().findFirst().get();
         return ResultJson.fail(objectError.getDefaultMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public ResultJson handler(IllegalArgumentException e) {
+        log.error("Assert异常：----------------{}", e);
+        return ResultJson.fail(e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
