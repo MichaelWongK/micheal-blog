@@ -45,7 +45,7 @@ public class AccountController {
         String jwt = jwtUtils.generateToken(user.getId());
 
         response.setHeader("Authorization", jwt);
-        response.setHeader("Access-control-Expost-Headers", "Authorization");
+        response.setHeader("Access-control-Expose-Headers", "Authorization");
 
         return ResultJson.success(MapUtil.builder()
                 .put("id",user.getId())

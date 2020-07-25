@@ -19,3 +19,5 @@ micheal:
     # token有效时长，7天，单位秒
     expire: 604800
     header: Authorization
+server:
+  port: 8088

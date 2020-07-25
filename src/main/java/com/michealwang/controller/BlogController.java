@@ -36,7 +36,7 @@ public class BlogController {
     @GetMapping("/blogs")
     public ResultJson  list(@RequestParam(defaultValue = "1") Integer currentPage) {
         Page page = new Page(currentPage, 5);
-        IPage pageData = blogService.page(page, new QueryWrapper<Blog>().orderByDesc("createDate"));
+        IPage pageData = blogService.page(page, new QueryWrapper<Blog>().orderByDesc("create_date"));
         return ResultJson.success(pageData);
     }
 
