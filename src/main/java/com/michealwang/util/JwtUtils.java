@@ -38,9 +38,12 @@ public class JwtUtils {
 
         return Jwts.builder()
                 .setHeaderParam("typ", "JWT")
+                // 主题 放入用户名
                 .setSubject(userId+"")
                 .setIssuedAt(nowDate)
+                // 失效时间
                 .setExpiration(expireDate)
+                // 签名算法和密钥
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
